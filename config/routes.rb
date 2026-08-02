@@ -7,4 +7,20 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  #GET /api/v1/balance
+  #POST /api/v1/deposit
+  #POST /api/v1/withdraw
+
+  namespace :api do
+    namespace :v1 do
+      #resource :balance, only: [:show], controller: :balance
+      get 'balance', to: 'balance#show'
+      post 'deposit', to: 'deposit#create'
+      post 'withdraw', to: 'withdraw#create'
+
+    end
+  end
+
+
 end
